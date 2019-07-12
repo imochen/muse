@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const path = require('path');
 
 const webpack = require('webpack');
@@ -11,7 +12,6 @@ module.exports = function () {
     devtool: process.env.NODE_ENV !== 'production' ? 'cheap-eval-source-map' : 'none',
     target: 'web',
     context: config('ENV.root'),
-    externals: config('RC.externals'),
     module: {
       rules: [],
     },
@@ -38,5 +38,8 @@ module.exports = function () {
     });
     if (result) webpackConf = result;
   });
+
+  webpackConf = _.merge(webpackConf, config('RC.extendWebpackConf'));
+  console.log(webpackConf);
   return webpackConf;
 };

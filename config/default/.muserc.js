@@ -22,18 +22,29 @@ module.exports = {
   stylelint: true, // muse 接管stylelint检测
 
   exclude: ['common', 'vue-common'], // 忽略的目录，该目录不会作为入口
-  externals: {}, // 官方externals
+
 
   // 需要走编译的node_modules，一般为源码引入，ES6模块
   transpileDependencies: [
     '@rc-source/'
   ],
 
-  // webpack.resolve.alias，仅支持简单的kv配置，没有环境变量，
-  // 主要应对 es module无法解析问题
-  alias: {
-    // 'async-validator': 'async-validator/lib/index.js', // 演示示例
+  // webpack 扩展配置
+  extendWebpackConf: {
+    externals: {}, // 官方externals
+    node: {
+      fs: 'empty'
+    },
+    resolve: {
+      // webpack.resolve.alias，仅支持简单的kv配置，没有环境变量，
+      // 主要应对 es module无法解析问题
+      alias: {
+        // 'async-validator': 'async-validator/lib/index.js', // 演示示例
+      },
+    }
   },
+
+
 
   cache: true, // 是否开启缓存
   htmlMinify: true, // 是否启用html压缩

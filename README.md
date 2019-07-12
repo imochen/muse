@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-sudo npm install -g @mochen/muse
+sudo npm install -g @mochen/muse --unsafe-perm
 ```
 
 ## 项目目录约束

@@ -40,6 +40,8 @@ module.exports = function () {
   });
 
   webpackConf = _.merge(webpackConf, config('RC.extendWebpackConf'));
-  console.log(webpackConf);
+  if (config('RC.debug')) {
+    console.log(webpackConf);
+  }
   return webpackConf;
 };

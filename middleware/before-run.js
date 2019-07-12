@@ -13,6 +13,7 @@ const bindUpdateNotice = (pkg) => {
   const notice = updateNotice({
     pkg,
     options: {
+      registry: 'https://registry.npmjs.org',
       isSudo: true, // default false
       isGlobal: true, // default false
     },

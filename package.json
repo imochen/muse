@@ -1,6 +1,6 @@
 {
   "name": "@mochen/muse",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "工程级前端构建工具",
   "bin": {
     "muse": "./bin/muse"

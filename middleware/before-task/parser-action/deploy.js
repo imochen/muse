@@ -1,3 +1,6 @@
+const path = require('path');
+const fse = require('fs-extra');
+
 const readlineSync = require('readline-sync');
 
 const { PROCESS_KEY } = require('../../../config/static');
@@ -5,7 +8,7 @@ const { setToEnv } = require('../../../util/index');
 const xlog = require('../../../util/xlog');
 
 module.exports = function build(data) {
-  const { OPTIONS } = data;
+  const { OPTIONS, PROJECT, RC } = data;
 
   if (OPTIONS.page !== 'all') {
     xlog.warning(
@@ -17,6 +20,8 @@ module.exports = function build(data) {
     if (next !== 'y') {
       OPTIONS.page = 'all';
     }
+  } else {
+    fse.removeSync(path.resolve(PROJECT.root, RC.deployDist));
   }
   setToEnv(OPTIONS, PROCESS_KEY.OPTIONS);
   data.OPTIONS = OPTIONS;

@@ -22,7 +22,7 @@ const bindUpdateNotice = (pkg) => {
   process.on('exit', (code) => {
     if (code === 0) {
       notice.notify((c) => {
-        return 'Changelog ' + c.magenta.underline('https://github.com/imochen/muse/blob/master/README.md');
+        return 'Changelog ' + c.magenta.underline('https://github.com/imochen/muse/blob/master/CHANGELOG.md');
       });
     }
   });

@@ -2,6 +2,8 @@
 
 工程级前端构建工具
 
+## [更新日志](./CHANGELOG.md)
+
 ## 安装
 
 ```bash
@@ -138,7 +140,7 @@ $ muse create [file]
 
 #### 参数
 
-`[file]`参数可选值 ['muse', 'eslint', 'babel', 'postcss', 'stylelint', 'browserlist']
+`[file]`参数可选值 ['muse', 'eslint', 'babel', 'postcss', 'stylelint', 'browserlist', 'tsconfig']
 
 #### 命令
 

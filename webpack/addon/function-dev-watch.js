@@ -7,15 +7,13 @@ const { WEBPACK } = require('../../config/static');
 
 module.exports = function (webpackConf, { config }) {
   const {
-    RUN: {
-      pages,
-    },
     OPTIONS: {
       action,
+      page,
     },
   } = config;
 
-  if (action === 'build' && pages.length === 1) {
+  if (action === 'build' && page !== 'all') {
     webpackConf.watch = true;
     webpackConf.watchOptions = {
       aggregateTimeout: 300,

@@ -22,15 +22,17 @@ module.exports = function () {
 
   let fileContent = 'module.exports = {\n\n}'; // eslint-disable-line
 
-  if (name.includes('.browserslistrc')) {
+  const NEED_COPY_FILES = [
+    '.browserslistrc',
+    'stylelint.config.js',
+    '.eslintrc.js',
+    'tsconfig.json',
+  ];
+
+  if (NEED_COPY_FILES.indexOf(name) > -1) {
     fileContent = fs.readFileSync(path.resolve(config('ENV.root'), `config/default/${name}`), 'utf-8');
   }
 
-  // stylelint/eslint 直接把文件复制到项目目录下
-  if (name.includes('lint')) {
-    fileContent = require(path.resolve(config('ENV.root'), `config/default/${name}`)); // eslint-disable-line
-    fileContent = 'module.exports = ' + JSON.stringify(fileContent, null, 2);
-  }
   // muserc 则将内容注释掉，并复制到项目目录
   if (name.includes('muserc')) {
     const muserc = path.resolve(config('ENV.root'), `config/default/${name}`);

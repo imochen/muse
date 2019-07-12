@@ -119,7 +119,7 @@ $ muse new [page]
 
 该命令可快速创建一个页面代码文件夹。如下所示。
 
-该目录规则可以通过`.muserc.js`中的`pagePath`修改。
+该目录规则可以通过`.muserc.js`中的`pagePath`修改。
 
 ```
 about
@@ -138,7 +138,7 @@ $ muse create [file]
 
 #### 参数
 
-`[file]`参数可选值 ['muse', 'eslint', 'babel', 'postcss', 'stylelint']
+`[file]`参数可选值 ['muse', 'eslint', 'babel', 'postcss', 'stylelint', 'browserlist']
 
 #### 命令
 

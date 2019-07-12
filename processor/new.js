@@ -17,7 +17,7 @@ module.exports = function () {
     process.exit(-1);
   }
 
-  const files = ['js', 'html', 'less'].map((v) => {
+  const files = [config('RC.lang'), 'html', 'less'].map((v) => {
     return path.resolve(workingPath, WEBPACK.src, config('RC.pagePath')).replace(/\${page}/g, name) + `.${v}`;
   });
 

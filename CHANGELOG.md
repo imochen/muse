@@ -1,3 +1,8 @@
+# 1.0.7
+
+## BugFix
+- 修复`muse new`命令不能跟随lang设置生成文件
+
 # 1.0.6
 
 ## BugFix

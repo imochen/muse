@@ -16,7 +16,7 @@ module.exports = {
 
 
   buildDist: 'dist/${app_system}/dev', // build模式输出目录
-  deployDist: 'src/${app_system}/online', // deploy模式输出目录
+  deployDist: 'dist/${app_system}/online', // deploy模式输出目录
 
   eslint: true, // muse 接管eslint检测
   stylelint: true, // muse 接管stylelint检测

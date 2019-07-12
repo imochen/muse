@@ -1,3 +1,8 @@
+# 1.0.6
+
+## BugFix
+- 修复默认build与deploy目标路径不一致问题
+
 # 1.0.5
 
 ## BugFix

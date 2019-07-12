@@ -1,5 +1,4 @@
 const fs = require('fs');
-const url = require('url');
 const path = require('path');
 
 const IMAGE_EXTS = ['svg', 'wbmp', 'png', 'bmp', 'fax', 'gif', 'ico', 'jpe', 'jpeg', 'jpg', 'cur', 'webp'];

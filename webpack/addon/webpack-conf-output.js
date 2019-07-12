@@ -10,7 +10,7 @@ module.exports = function (webpackConf, { config, env }) {
   const {
     RC,
     RC: { devPublicPath },
-    OPTIONS: { action, page },
+    OPTIONS: { action },
     PROJECT: { root },
   } = config;
 

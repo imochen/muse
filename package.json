@@ -5,6 +5,14 @@
   "bin": {
     "muse": "./bin/muse"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imochen/muse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/imochen/muse/issues"
+  },
+  "homepage": "https://github.com/imochen/muse#readme",
   "author": "mochen <mochen.china@gmail.com>",
   "license": "MIT",
   "scripts": {

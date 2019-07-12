@@ -1,0 +1,135 @@
+#!/usr/bin/env node
+const yarg = require('yargs');
+
+const { ACTION } = require('../config/static');
+const { requireMiddleware } = require('../util/index');
+
+const pkg = require('../package.json');
+
+requireMiddleware('before-cmd', {
+  pkg,
+});
+
+// 此处为了保证生命周期顺序，不能在头部直接require index
+const launcher = options => require('../index')(options);
+
+yarg.usage('$0 <command> [options]');
+
+// build
+yarg
+  .example('$0 build index', 'Build index page with development mode')
+  .command('build [page]', '', (yargs) => {
+    yargs.positional('page', {
+      type: 'string',
+      default: 'all',
+      describe: 'Name of the page',
+    });
+    yargs.positional('config', {
+      type: 'string',
+      describe: 'Use the specified config',
+    });
+  }, (argv) => {
+    launcher(Object.assign(argv, {
+      action: ACTION.BUILD,
+    }));
+  });
+
+// watch
+yarg
+  .example('$0 watch index', 'Use webpack dev server, watch don`t output real files')
+  .command('watch [page]', '', (yargs) => {
+    yargs.positional('page', {
+      type: 'string',
+      default: 'all',
+      describe: 'Name of the page',
+    });
+    yargs.positional('config', {
+      type: 'string',
+      describe: 'Use the specified config',
+    });
+  }, (argv) => {
+    launcher(Object.assign(argv, {
+      action: ACTION.WATCH,
+    }));
+  });
+
+// deploy
+yarg
+  .example('$0 deploy', 'Build all pages with production mode')
+  .command('deploy [page]', '', (yargs) => {
+    yargs.positional('page', {
+      type: 'string',
+      default: 'all',
+      describe: 'Name of the page',
+    });
+    yargs.positional('config', {
+      type: 'string',
+      describe: 'Use the specified config',
+    });
+  }, (argv) => {
+    launcher(Object.assign(argv, {
+      action: ACTION.DEPLOY,
+    }));
+  });
+
+// create new page dir
+yarg
+  .example('$0 new about', 'Create a page dir with base file')
+  .command('new [page]', '', (yargs) => {
+    yargs.positional('page', {
+      type: 'string',
+      describe: 'Name of the page',
+    });
+  }, (argv) => {
+    launcher(Object.assign(argv, {
+      action: ACTION.NEW,
+    }));
+  });
+
+// create rc file
+yarg
+  .example('$0 create muse', 'Create a muserc file')
+  .command('create [file]', '', (yargs) => {
+    yargs.positional('file', {
+      type: 'string',
+      describe: '[muse, babel, eslint, stylelint, postcss, browserlist]',
+    });
+  }, (argv) => {
+    launcher(Object.assign(argv, {
+      action: ACTION.CREATE,
+    }));
+  });
+
+// muse lint project
+yarg
+  .example('$0 lint [fix]', 'lint my project')
+  .command('lint [fix]', '', (yargs) => {
+    yargs.positional('fix', {
+      type: 'string',
+      default: '',
+      describe: 'lint & fix my project',
+    });
+  }, (argv) => {
+    launcher(Object.assign(argv, {
+      action: ACTION.LINT,
+    }));
+  });
+
+yarg
+  .example('$0 lint:fix', 'lint & fix my project')
+  .command('lint:fix', '', () => { }, (argv) => {
+    launcher(Object.assign(argv, {
+      action: ACTION.LINT,
+      fix: true,
+    }));
+  });
+
+// eslint-disable-next-line
+yarg
+  .help('h')
+  .alias('h', 'help')
+  .version(pkg.version)
+  .alias('v', 'version')
+  .epilog('@mochen')
+  .demandCommand()
+  .argv;

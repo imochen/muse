@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "filePrefix": {
+      "type": "string"
+    },
+    "cache": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "boolean"
+        }
+      ]
+    }
+  }
+}

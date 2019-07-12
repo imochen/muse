@@ -5,6 +5,10 @@
 ## 安装
 
 ```bash
+npm install -g @mochen/muse
+```
+OR
+```bash
 sudo npm install -g @mochen/muse --unsafe-perm
 ```
 

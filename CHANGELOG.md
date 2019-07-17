@@ -1,3 +1,8 @@
+# 1.0.8
+
+## BugFix
+- 修复windows下spawn问题，使用`win-spawn`
+
 # 1.0.7
 
 ## BugFix

@@ -1,5 +1,4 @@
-const { spawn } = require('child_process');
-
+const spawn = require('../util/spawn');
 const config = require('../config/index');
 const xlog = require('../util/xlog');
 

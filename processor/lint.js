@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { spawn } = require('child_process');
+const spawn = require('../util/spawn');
 
 const config = require('../config/index');
 const { WEBPACK } = require('../config/static');

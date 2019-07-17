@@ -11431,6 +11431,12 @@
         "string-width": "^2.1.1"
       }
     },
+    "win-spawn": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npm.taobao.org/win-spawn/download/win-spawn-2.0.0.tgz",
+      "integrity": "sha1-OXopEw7JjQqgvIa6pGITk+/9Cwc=",
+      "dev": true
+    },
     "window-size": {
       "version": "0.1.0",
       "resolved": "https://registry.npmjs.org/window-size/-/window-size-0.1.0.tgz",

@@ -2,17 +2,10 @@
  * webpack output
  */
 const path = require('path');
-const {
-  ACTION,
-} = require('../../config/static');
+const {ACTION, } = require('../../config/static');
 
-module.exports = function (webpackConf, { config, env }) {
-  const {
-    RC,
-    RC: { devPublicPath },
-    OPTIONS: { action },
-    PROJECT: { root },
-  } = config;
+module.exports = function(webpackConf, {config, env}) {
+  const {RC, RC: {devPublicPath, deployPublicPath}, OPTIONS: {action}, PROJECT: {root}, } = config;
 
   // dev 用 hash
   // prod 用 contenthash
@@ -30,7 +23,7 @@ module.exports = function (webpackConf, { config, env }) {
   };
 
   if (action === ACTION.DEPLOY) {
-    webpackConf.output.publicPath = '/';
+    webpackConf.output.publicPath = deployPublicPath || '/';
   }
 
   return webpackConf;

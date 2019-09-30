@@ -55,4 +55,5 @@ module.exports = {
   pagePath: '${page}/index', // 目录规则
 
   devPublicPath: '', // 多级目录watch问题
+  deployPublicPath: '/' // deploy时的publicPath
 }

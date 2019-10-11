@@ -14,7 +14,7 @@ module.exports = function(webpackConf, {config, env}) {
   webpackConf.output = {
     path: path.resolve(root, RC[`${action}Dist`] || RC.buildDist),
     filename: `js/[name].[${hashKey}:18].js`,
-    chunkFilename: `chunk/js/[name].[${hashKey}:18].js`,
+    chunkFilename: `js/[name].[${hashKey}:18].js`,
     libraryTarget: 'umd',
     publicPath: (process.env.NODE_ENV === 'development' && devPublicPath)
       ? devPublicPath
@@ -23,7 +23,7 @@ module.exports = function(webpackConf, {config, env}) {
   };
 
   if (action === ACTION.DEPLOY) {
-    webpackConf.output.publicPath = deployPublicPath || '/';
+    webpackConf.output.publicPath = deployPublicPath || './';
   }
 
   return webpackConf;

@@ -9,8 +9,8 @@ module.exports = function (webpackConf, { env, config }) {
 
   webpackConf.plugins.push(
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:18].css',
-      chunkFilename: 'chunk/css/[name].[contenthash:18].css',
+      filename: '[name].[contenthash:18].css',
+      chunkFilename: '[name].[contenthash:18].css',
     }),
   );
 
